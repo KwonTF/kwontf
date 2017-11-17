@@ -1,3 +1,73 @@
+@charset 'utf-8';
+@import 'util.scss';
+.App{
+    text-align: center;
+}
 .Title{
-    color: #FFFF00;
+    font-family: 'vox';
+    font-size: 40px;
+    color: 	#4e4e4e;
+    .text{
+        color: #2484c6;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 70px;
+    }
+}
+body {
+    background: #e6e7e8;
+    background-image: url("./whiteSqr.png");
+    background-size: auto, cover;
+}
+.Image{
+    .imageFullContainer{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        .imageContainer{
+        position: relative;
+            .ImageText{
+                position: absolute;
+                margin-top: 0px;
+                margin-bottom: 0px;
+                top: 0px;
+                left: 0px;
+                height: 50px;
+                padding-top: 75px;
+                padding-bottom: 75px;
+                width: 200px;
+                opacity: 1;
+                background: #111111;
+            }
+        }
+
+    }
+    .image1, .image3, .image8, .image11,{
+        object-position: left;
+    }
+    .image2,.image6, .image12, .image13{
+        object-position: right;
+    }
+    img {
+        overflow: hidden;
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+    }
+    p{
+        font-family: 'industry';
+        color: rgb(71, 92, 114);
+    }
+    h4{
+        font-family: 'vox';
+        font-weight: 700;
+        font-size: 40px;
+        @include linearGradient(#3ec2cf, #0072bc); 
+    }
+}
+h1{
+    font-family: 'vox';
+    font-weight: 700;
+    font-size: 40px;
+    @include linearGradient(rgb(247, 148, 29), rgb(198, 22, 141));
 }

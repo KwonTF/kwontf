@@ -10,3 +10,10 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+@mixin transition($target, $time, $tran-type){
+    -webkit-transition: $target $time $tran-type;
+    -moz-transition: $target $time $tran-type;
+    -o-transition: $target $time $tran-type;
+    transition: $target $time $tran-type;
+}

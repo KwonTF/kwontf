@@ -1,21 +1,111 @@
-import React from 'react';
+import React , {Component}from 'react';
+import ReactDOM from 'react-dom';
 import './app.css';
+let popuped = true;
+let Source="././img/Image/1.png";
+class Navi extends React.Component{
+  constructor(){
+    super()
+    this.state = {showResults: true};
+  }
+  render(){
+    console.log(this.state.showResults);
+    if(this.state.showResults){
+    return(
+      <div className="navigator">
+      <button className="ImageButton" onClick={this.Click1}>Image</button>
+      <button className="VideoButton" onClick={this.Click2}>Video</button>
+      </div>
+    );}
+    else{
+      return(
+        <h1 onClick={this.hideClick}>null</h1>
+      );
+    }
+  }
+  Click1(){
+    window.scrollTo(0,260);
+  }
+  Click2(){
+    let sizeDetector = parseInt((1232-window.innerWidth)/200)+1;
+    if(1232-window.innerWidth < 0){
+      window.scrollTo(0,1043);
+    }
+    else{
+      switch(sizeDetector){
+        case 5:
+          window.scrollTo(0,4243);
+          break;
+        case 4:
+          window.scrollTo(0,2363);
+          break;
+        default:
+          window.scrollTo(0,sizeDetector*200 + 1043);
+          break;
+      }
+    }
+  }
+}
 class App extends React.Component {
   render() {
     return (
+      <div className = "FullApp">
+        <div className="Navi">
+        <Navi/>
+      </div>
       <div className="App">
         <div className="Title">
-          <TextGlitcher inputText = "Kwon Practical Series" />
+          <TextGlitcher inputText = "Kwon Media Gallery" />
           <h3>Still Image / BGA</h3>
         </div>
         <div className="Image">
           <Image/>
         </div>
-        <div className="VGA">
-          <h1>Video</h1>
+        <div className="Video">
+          <Video/>
         </div>
       </div>
+      <Viewer className="viewer" onClickFunction = {Source}/>
+      </div>
     );
+  }
+}//5 1305 
+class Viewer extends React.Component{
+  constructor(props){
+    super(props)
+    this.state = {URL: this.props.onClickFunction};
+  }
+  render(){
+    return(
+      <div className="ViewerContainer">
+      <img src={Source}/>
+      </div>
+    );
+  }
+}
+class Video extends React.Component{
+  constructor(){
+
+    super();
+    this.value = {
+      VideoArray: Array.from({length: 5}, (value,index)=>index+1)
+    };
+  }//
+  render(){
+    return(
+      <div>
+        <h4>Video</h4>
+        <div className = "videoFullContainer">
+        {
+          this.value.VideoArray.map((i)=>{
+            return(
+              <VideoClass key={i} num = {i}/>
+            )
+          })
+        }
+        </div>
+      </div>
+    )
   }
 }
 class Image extends React.Component{
@@ -42,25 +132,57 @@ class Image extends React.Component{
     );
   }
 }
-//
 class ImageClass extends React.Component{
+  constructor(props){
+    super(props);
+    this.floatImage = this.floatImage.bind(this);
+  }
  render(){
-   let data = (require('./ImageData.json')).ImageMeta;
+   let data = (require('./MetaData.json')).ImageMeta;
    let rowNum = data[(this.props.num)-1].text.split('</br>').length;
    return(
-   <div className = "imageContainer">
-     <img src = {"./img/"+ this.props.num + ".png"} alt = {this.props.num} className = {"image"+this.props.num}/>
+   <div className = "imageContainer" onClick = {this.floatImage}>
+     <img src = {"./img/Image/"+ this.props.num + ".png"} alt = {this.props.num} className = {"image"+this.props.num}/>
        <p className="ImageText">{
          data[(this.props.num)-1].text.split('</br>').map((line,index)=>{
           if(index+1 === rowNum){
-            <span key={this.props.num+"of"+index}>{line}</span>
+            return(
+            <span key={this.props.num+"of"+index}>{line}</span>);
           }
+          else{
        return(
          <span key={this.props.num+"of"+index}>{line}<br/></span>
-       )
+       );}
      })}</p>
    </div>);
  }
+ floatImage(){
+   popuped = true;
+   Source = "./img/Image/"+ this.props.num + ".png";
+   console.log(Source);
+ }//7 307
+}
+class VideoClass extends React.Component{
+  render(){
+    let data = (require('./MetaData.json')).VideoMeta;
+    let rowNum = data[(this.props.num)-1].text.split('</br>').length;
+    return(
+      <div className = "videoContainer">
+        <img src = {"./img/Video/VidPlate"+this.props.num+".png"} alt = {this.props.num} className = {"video"+this.props.num}/>
+        <p className="VideoText">{
+         data[(this.props.num)-1].text.split('</br>').map((line,index)=>{
+          if(index+1 === rowNum){
+            return(
+            <span key={this.props.num+"of"+index}>{line}</span>);
+          }
+          else{
+       return(
+         <span key={this.props.num+"of"+index}>{line}<br/></span>
+       );}
+     })}</p>
+      </div>
+    );
+  }
 }
 class TextGlitcher extends React.Component{
   constructor(props){
@@ -105,110 +227,3 @@ class TextGlitcher extends React.Component{
   }
 }
 export default App;
-/*
-function Square(props){
-    return (
-      <button className="square" onClick={props.onClick}>
-        {props.value}
-      </button>
-    );
-}
-
-class Board extends React.Component {
-  constructor(){
-    super();
-    this.state = {
-      squares: Array(9).fill(null),
-      xIsnext: true
-    };
-  }
-  handleClick(i){
-    const squares = this.state.squares.slice();
-    if(calculateWinner(squares)||squares[i]){
-      return;
-    }
-    if(this.state.xIsnext)
-      squares[i] = '으';
-    else
-      squares[i] = '헿';
-    this.setState({squares: squares, xIsnext: !this.state.xIsnext});
-  }
-  renderSquare(i) {
-    return( <Square value={this.state.squares[i]}
-    onClick = {()=> this.handleClick(i)}
-    />
-    );
-  }
-
-  render() {
-    const winner = calculateWinner(this.state.squares);
-    let status;
-    if(winner){
-      status = 'winner: 나오쟈아앙 ('+winner+')';
-    }
-    else{
-    if(this.state.xIsnext)
-      status = 'Next player: 으';
-    else
-      status = 'Next player: 헿';
-    }
-    return (
-      <div>
-        <div className="status">{status}</div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
-      </div>
-    );
-  }
-}
-
-class Game extends React.Component {
-  render() {
-    return (
-      <div className="game">
-        <div className="game-board">
-          <Board />
-        </div>
-        <div className="game-info">
-          //<div>{ status }</div>
-          //<ol>{ TODO }</ol>
-        </div>
-      </div>
-    );
-  }
-}
-
-function calculateWinner(squares) {
-  const lines = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6],
-  ];
-  for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i];
-    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
-    }
-  }
-  return null;
-}
-
-export default Game;*/

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  position: relative;
 }
 
 .Title {
@@ -32,6 +33,7 @@ body {
 }
 
 .Image .imageFullContainer .imageContainer .ImageText {
+  color: #e6e7e8;
   position: absolute;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -41,8 +43,17 @@ body {
   padding-top: 75px;
   padding-bottom: 75px;
   width: 200px;
-  opacity: 1;
+  opacity: 0;
   background: #111111;
+  -webkit-transition: all 0.1s ease-out;
+  -moz-transition: all 0.1s ease-out;
+  -o-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+  font-family: 'industry';
+}
+
+.Image .imageFullContainer .imageContainer .ImageText:hover {
+  opacity: 0.8;
 }
 
 .Image .image1, .Image .image3, .Image .image8, .Image .image11 {
@@ -58,11 +69,6 @@ body {
   width: 200px;
   height: 200px;
   object-fit: cover;
-}
-
-.Image p {
-  font-family: 'industry';
-  color: #475c72;
 }
 
 .Image h4 {
@@ -89,10 +95,114 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-h1 {
+.Video h4 {
   font-family: 'vox';
   font-weight: 700;
   font-size: 40px;
+  background: #f7941d;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #f7941d 0%, #c6168d 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7941d), color-stop(100%, #c6168d));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #f7941d 0%, #c6168d 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #f7941d 0%, #c6168d 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #f7941d 0%, #c6168d 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #f7941d 0%, #c6168d 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 );
+  /* IE6-9 */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.Video .videoFullContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.Video .videoFullContainer .videoContainer {
+  position: relative;
+  overflow: hidden;
+  width: 85%;
+  height: 200px;
+  object-fit: cover;
+  object-position: left;
+}
+
+.Video .videoFullContainer .videoContainer .VideoText {
+  color: #e6e7e8;
+  position: absolute;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  top: 0px;
+  left: 0px;
+  height: 50px;
+  padding-top: 75px;
+  padding-bottom: 75px;
+  width: 100%;
+  opacity: 0;
+  background: #111111;
+  -webkit-transition: all 0.1s ease-out;
+  -moz-transition: all 0.1s ease-out;
+  -o-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+  font-family: 'industry';
+}
+
+.Video .videoFullContainer .videoContainer .VideoText:hover {
+  opacity: 0.8;
+}
+
+.Navi .navigator {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  z-index: 1;
+  height: 10%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  top: 0px;
+  left: 0px;
+}
+
+.Navi .navigator button {
+  background-color: transparent;
+  color: #e6e7e8;
+  border-top: 0px;
+  border-bottom: 0px;
+  width: 50%;
+  font-family: "vox";
+  font-weight: 700;
+  font-size: 150%;
+}
+
+.Navi .navigator .ImageButton:Hover {
+  background: #d2eff1;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #d2eff1 0%, #0072bc 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2eff1), color-stop(100%, #0072bc));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #d2eff1 0%, #0072bc 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #d2eff1 0%, #0072bc 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #d2eff1 0%, #0072bc 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #d2eff1 0%, #0072bc 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 );
+  /* IE6-9 */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.Navi .navigator .VideoButton:Hover {
   background: #f7941d;
   /* Old browsers */
   background: -moz-linear-gradient(top, #f7941d 0%, #c6168d 100%);

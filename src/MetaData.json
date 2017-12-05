@@ -25,5 +25,12 @@
         {"key":"3", "text":"Kwon Pracical Series 3</br>Composed by Lunatic Sounds</br>Original Visualized by PEENA"},
         {"key":"4", "text":"Kwon Pracical Series 4</br>Composed by KIEN</br>Original Visualized by Diesel Eater"},
         {"key":"5", "text":"Kwon Pracical Series 5</br>Composed by GOTH</br>Original Visualized by Gunzo"}
+    ],
+    "VideoLink":[
+        {"key":"1", "link":"https://www.youtube.com/embed/o38b6HQRhmw"},
+        {"key":"2", "link":"https://www.youtube.com/embed/__ZwAaIUWok"},
+        {"key":"3", "link":"https://www.youtube.com/embed/5PtLxJGgcMg"},
+        {"key":"4", "link":"https://www.youtube.com/embed/4S7SkVA2g0U"},
+        {"key":"5", "link":"https://www.youtube.com/embed/CgI8xJ61qcY"}
     ]
 }

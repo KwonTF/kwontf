@@ -1,15 +1,12 @@
 import React , {Component}from 'react';
 import ReactDOM from 'react-dom';
 import './app.css';
-let popuped = true;
-let Source="././img/Image/1.png";
 class Navi extends React.Component{
   constructor(){
     super()
     this.state = {showResults: true};
   }
   render(){
-    console.log(this.state.showResults);
     if(this.state.showResults){
     return(
       <div className="navigator">
@@ -47,6 +44,7 @@ class Navi extends React.Component{
   }
 }
 class App extends React.Component {
+
   render() {
     return (
       <div className = "FullApp">
@@ -65,20 +63,6 @@ class App extends React.Component {
           <Video/>
         </div>
       </div>
-      <Viewer className="viewer" onClickFunction = {Source}/>
-      </div>
-    );
-  }
-}//5 1305 
-class Viewer extends React.Component{
-  constructor(props){
-    super(props)
-    this.state = {URL: this.props.onClickFunction};
-  }
-  render(){
-    return(
-      <div className="ViewerContainer">
-      <img src={Source}/>
       </div>
     );
   }
@@ -134,40 +118,59 @@ class Image extends React.Component{
 }
 class ImageClass extends React.Component{
   constructor(props){
-    super(props);
-    this.floatImage = this.floatImage.bind(this);
+    super(props)
+    this.state = {viss: false};
+    this.on = this.on.bind(this);
+  }
+  on(){
+    this.setState({viss: !this.state.viss});
   }
  render(){
    let data = (require('./MetaData.json')).ImageMeta;
    let rowNum = data[(this.props.num)-1].text.split('</br>').length;
    return(
-   <div className = "imageContainer" onClick = {this.floatImage}>
-     <img src = {"./img/Image/"+ this.props.num + ".png"} alt = {this.props.num} className = {"image"+this.props.num}/>
-       <p className="ImageText">{
-         data[(this.props.num)-1].text.split('</br>').map((line,index)=>{
-          if(index+1 === rowNum){
-            return(
+   <div className = "imageContainer" onClick = {this.on}>
+      <img src = {"./img/Image/"+ this.props.num + ".png"} alt = {this.props.num} className = {"image"+this.props.num+ " image"}/>
+      <p className="ImageText">
+      {
+        data[(this.props.num)-1].text.split('</br>').map((line,index)=>{
+        if(index+1 === rowNum){
+          return(
             <span key={this.props.num+"of"+index}>{line}</span>);
-          }
-          else{
+        }
+        else{
        return(
          <span key={this.props.num+"of"+index}>{line}<br/></span>
        );}
      })}</p>
+     <Viewer _vis={this.state.viss} _src={"./img/Image/"+ this.props.num + ".png"} onClick={this.on}/>
    </div>);
  }
- floatImage(){
-   popuped = true;
-   Source = "./img/Image/"+ this.props.num + ".png";
-   console.log(Source);
- }//7 307
+}
+class Viewer extends React.Component{
+  constructor(props){
+    super(props)
+    this.state = {Source: this.props._src}
+  }
+  render(){
+    return this.props._vis && <img src={this.state.Source} className ="Viewer" alt=""/>
+  }
 }
 class VideoClass extends React.Component{
+  constructor(props){
+    super(props)
+    this.state = {viss: false};
+    this.on = this.on.bind(this);
+  }
+  on(){
+    this.setState({viss: !this.state.viss});
+  }
   render(){
     let data = (require('./MetaData.json')).VideoMeta;
+    let link = (require('./MetaData.json')).VideoLink;
     let rowNum = data[(this.props.num)-1].text.split('</br>').length;
     return(
-      <div className = "videoContainer">
+      <div className = "videoContainer" onClick = {this.on}>
         <img src = {"./img/Video/VidPlate"+this.props.num+".png"} alt = {this.props.num} className = {"video"+this.props.num}/>
         <p className="VideoText">{
          data[(this.props.num)-1].text.split('</br>').map((line,index)=>{
@@ -180,8 +183,18 @@ class VideoClass extends React.Component{
          <span key={this.props.num+"of"+index}>{line}<br/></span>
        );}
      })}</p>
+     <VideoViewer _vis={this.state.viss} _src={link[(this.props.num)-1].link} onClick={this.on}/>
       </div>
     );
+  }
+}
+class VideoViewer extends React.Component{
+  constructor(props){
+    super(props)
+    this.state = {Source: this.props._src}
+  }
+  render(){
+    return this.props._vis && <iframe allowFullScreen={true} src={this.state.Source+"?autoplay=1"} className ="VideoViewer"/>
   }
 }
 class TextGlitcher extends React.Component{

@@ -56,19 +56,30 @@ body {
   opacity: 0.8;
 }
 
+.Image .imageFullContainer .imageContainer .image {
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.Image .imageFullContainer .Viewer {
+  overflow-x: scroll;
+  position: fixed;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 50% 50% 50% 50%;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
 .Image .image1, .Image .image3, .Image .image8, .Image .image11 {
   object-position: left;
 }
 
 .Image .image2, .Image .image6, .Image .image12, .Image .image13 {
   object-position: right;
-}
-
-.Image img {
-  overflow: hidden;
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
 }
 
 .Image h4 {
@@ -156,6 +167,18 @@ body {
 
 .Video .videoFullContainer .videoContainer .VideoText:hover {
   opacity: 0.8;
+}
+
+.Video .videoFullContainer .videoContainer .VideoViewer {
+  position: fixed;
+  z-index: 3;
+  bottom: 0%;
+  left: 0%;
+  padding: 5% 10% 5% 10%;
+  border: 0px;
+  width: 80%;
+  height: 80%;
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .Navi .navigator {

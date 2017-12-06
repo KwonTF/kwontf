@@ -1,7 +1,6 @@
-import React , {Component}from 'react';
-import ReactDOM from 'react-dom';
+import React, {Component} from 'react';
 import './app.css';
-class Navi extends React.Component{
+class Navi extends Component{
   constructor(){
     super()
     this.state = {showResults: true};
@@ -24,7 +23,7 @@ class Navi extends React.Component{
     window.scrollTo(0,260);
   }
   Click2(){
-    let sizeDetector = parseInt((1232-window.innerWidth)/200)+1;
+    let sizeDetector = parseInt((1232-window.innerWidth)/200, 10)+1;
     if(1232-window.innerWidth < 0){
       window.scrollTo(0,1043);
     }
@@ -43,7 +42,7 @@ class Navi extends React.Component{
     }
   }
 }
-class App extends React.Component {
+class App extends Component {
 
   render() {
     return (
@@ -70,7 +69,7 @@ class App extends React.Component {
     );
   }
 }
-class Video extends React.Component{
+class Video extends Component{
   constructor(){
 
     super();
@@ -95,7 +94,7 @@ class Video extends React.Component{
     )
   }
 }
-class Image extends React.Component{
+class Image extends Component{
   constructor(){
     super();
     this.value = {
@@ -119,7 +118,7 @@ class Image extends React.Component{
     );
   }
 }
-class ImageClass extends React.Component{
+class ImageClass extends Component{
   constructor(props){
     super(props)
     this.state = {viss: false};
@@ -150,7 +149,7 @@ class ImageClass extends React.Component{
    </div>);
  }
 }
-class Viewer extends React.Component{
+class Viewer extends Component{
   constructor(props){
     super(props)
     this.state = {Source: this.props._src}
@@ -159,7 +158,7 @@ class Viewer extends React.Component{
     return this.props._vis && <img src={this.state.Source} className ="Viewer" alt=""/>
   }
 }
-class VideoClass extends React.Component{
+class VideoClass extends Component{
   constructor(props){
     super(props)
     this.state = {viss: false};
@@ -191,16 +190,16 @@ class VideoClass extends React.Component{
     );
   }
 }
-class VideoViewer extends React.Component{
+class VideoViewer extends Component{
   constructor(props){
     super(props)
     this.state = {Source: this.props._src}
   }
   render(){
-    return this.props._vis && <iframe allowFullScreen={true} src={this.state.Source+"?autoplay=1"} className ="VideoViewer"/>
+    return this.props._vis && <iframe allowFullScreen={true} src={this.state.Source+"?autoplay=1"} title={this.state.Source} className="VideoViewer"/>
   }
 }
-class TextGlitcher extends React.Component{
+class TextGlitcher extends Component{
   constructor(props){
     super(props);
     this.state = { OriginText: this.props.inputText, Text: Array.from({length: this.props.inputText.length}, () => ' ').join(''), elapsed:0,  start: Date.now()};

@@ -48,6 +48,9 @@ class App extends React.Component {
   render() {
     return (
       <div className = "FullApp">
+      <style>
+        @import url("https://use.typekit.net/nwe8gse.css");
+      </style>
         <div className="Navi">
         <Navi/>
       </div>

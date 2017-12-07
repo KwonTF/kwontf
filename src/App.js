@@ -24,7 +24,7 @@ class App extends Component {
           <Video/>
         </div>
         <div>
-          <h4 className="Credit">Kwontf.Net Version 0.1 <br/>Telegram: @ktf1008<br/> Kakao, Email: ktf1008@naver.com </h4>
+          <h4 className="Credit">Kwontf.Net Version 0.2 <br/>Telegram: @ktf1008<br/> Kakao, Email: ktf1008@naver.com </h4>
           </div>
       </div>
       </div>

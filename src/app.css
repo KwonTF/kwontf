@@ -71,8 +71,7 @@ body {
 }
 
 .Image .imageFullContainer .Viewer {
-  width: 100%;
-  overflow-x: scroll;
+  width: 48%;
   position: fixed;
   z-index: 3;
   top: 50%;
@@ -324,6 +323,7 @@ body {
     height: 100px;
   }
   .Image .imageFullContainer .Viewer {
+    width: 100%;
     overflow: scroll;
     z-index: 3;
     top: 50%;

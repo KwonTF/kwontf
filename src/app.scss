@@ -60,9 +60,9 @@ body {
                 height: 200px;
                 object-fit: cover;
             }
-            //8 1104
         }
         .Viewer{
+            width: 100%;
             overflow-x: scroll;
             position: fixed;
             z-index: 3;
@@ -139,7 +139,7 @@ body {
 
     }
 }
-
+//6 1109
 .Navi{
     .navigator{
         display: flex;
@@ -154,8 +154,7 @@ body {
         button{
             background-color: rgba(0, 0, 0,0);
             color: #e6e7e8;
-            border-top: 0px;
-            border-bottom: 0px;
+            border:0px;
             width: 50%;
             font-family: "vox";
             font-weight: 700;
@@ -166,6 +165,77 @@ body {
         }
         .VideoButton:Hover{
             @include linearGradient(rgb(247, 148, 29), rgb(198, 22, 141));
+        }
+    }
+}
+
+@media (max-width: 768px){
+    .Title{
+        font-size: 30px;
+        .text{
+            font-size: 55px;
+        }
+    }
+    .Navi{
+        .navigator{
+            height: 7%;
+            .ImageButton{
+                @include linearGradient(#d2eff1, #0072bc);
+            }
+            .VideoButton{
+                @include linearGradient(rgb(247, 148, 29), rgb(198, 22, 141));
+            }
+        }
+    }
+    .Image{
+        .imageFullContainer{
+            .imageContainer{
+                .ImageText{
+                    color: #e6e7e8;
+                    position: absolute;
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                    top: 0px;
+                    left: 0px;
+                    width: 100px;
+                    font-size: 12px;
+                    padding-top: 25px;
+                    padding-bottom: 25px;
+                    opacity: 0;
+                    &:hover{
+                        opacity: 0;
+                    }
+                }
+                .image{
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+            .Viewer{
+                overflow: scroll;
+                z-index: 3;
+                top:50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding: 100% 50% 100% 50%;
+                background-color: rgba(0, 0, 0,0.9);
+            }
+        }
+    }
+    .Video{
+        .videoFullContainer{
+            .videoContainer{
+                .VideoText{
+                    opacity: 0.8;
+                }
+                .VideoViewer{
+                    bottom:0%;
+                    left: 0%;
+                    padding: 11.6% 10% 11.6% 10%;
+                    width: 80%;
+                    height: 80%;                
+                }
+            }
         }
     }
 }

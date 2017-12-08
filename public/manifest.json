@@ -3,17 +3,17 @@
   "name": "Kwon Media Gallary",
   "icons": [
     {
-      "src": "Icon192.png",
+      "src": "Icon192C.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "Icon64.png",
+      "src": "Icon64C.png",
       "type": "image/png",
       "sizes": "64x64"
     },
     {
-    "src": "Icon48.png",
+    "src": "Icon48C.png",
     "type": "image/png",
     "sizes": "48x48"
     }

@@ -1,11 +1,21 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Kwontf.Net",
+  "name": "Kwon Media Gallary",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "Icon192.png",
       "sizes": "192x192",
       "type": "image/png"
+    },
+    {
+      "src": "Icon64.png",
+      "type": "image/png",
+      "sizes": "64x64"
+    },
+    {
+    "src": "Icon48.png",
+    "type": "image/png",
+    "sizes": "48x48"
     }
   ],
   "start_url": "./index.html",

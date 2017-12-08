@@ -5,7 +5,6 @@ import Image from './Component/ImageComps';
 import Video from './Component/VideoComps';
 import TextGlitcher from './Component/TextGlitcher';
 class App extends Component {
-
   render() {
     return (
       <div className = "FullApp">

@@ -1,0 +1,35 @@
+.VideoListCell {
+  position: relative;
+  overflow: hidden;
+  width: 85%;
+  height: 200px;
+  object-fit: cover;
+  object-position: left;
+}
+
+.VideoListCell p {
+  color: #e6e7e8;
+  position: absolute;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  top: 0px;
+  left: 0px;
+  height: 50px;
+  padding-top: 75px;
+  padding-bottom: 75px;
+  width: 100%;
+  opacity: 0;
+  background: #111111;
+  transition: all, .1s, ease-out;
+  font-family: 'industry';
+}
+
+@media (max-width: 768px) {
+  .VideoListCell p {
+    opacity: 0.8;
+  }
+}
+
+.VideoListCell p:hover {
+  opacity: 0.8;
+}

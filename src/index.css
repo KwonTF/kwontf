@@ -1,0 +1,5 @@
+body {
+  background: #e6e7e8;
+  background-image: url("/static/media/image/background/whiteSqr.png");
+  background-size: auto, cover;
+}

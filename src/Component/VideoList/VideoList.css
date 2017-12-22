@@ -1,0 +1,14 @@
+.VideoList h3 {
+  font-family: 'vox';
+  font-weight: 700;
+  font-size: 40px;
+  background: linear-gradient(to bottom, rgb(247, 148, 29) 0%, rgb(198, 22, 141) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.VideoList .list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

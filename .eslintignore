@@ -1,1 +1,3 @@
 *.test.js
+_*.js
+registerServiceWorker.js

@@ -1,0 +1,17 @@
+.VideoViewer {
+  position: fixed;
+  z-index: 3;
+  bottom:0%;
+  left: 0%;
+  padding: 5% 10% 5% 10%;
+  border:0px;
+  width: 80%;
+  height: 80%;
+  background-color: rgba(0, 0, 0,0.9);
+}
+
+@media (max-width: 768px) {
+  .VideoViewer {
+    padding: 11.6% 10% 11.6% 10%;
+  }
+}

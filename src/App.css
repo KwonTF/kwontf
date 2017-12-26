@@ -1,0 +1,32 @@
+.App {
+  text-align: center;
+  position: relative;
+  margin-top: 90px;
+}
+
+.App .title {
+  font-family: 'vox';
+}
+
+.App .title h1 {
+  color: #2484c6;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 70px;
+}
+
+.App .title h2 {
+  font-size: 47px;
+  padding: 20px 0;
+  color: 	#4e4e4e;
+}
+
+@media (max-width: 768px) {
+  .App .title h1 {
+    font-size: 55px;
+  }
+
+  .App .title h2 {
+    font-size: 36px;
+  }
+}

@@ -1,0 +1,39 @@
+.Navbar {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  z-index: 1;
+  height: 10%;
+  width: 100%;
+  background:rgba(0, 0, 0,0.9);
+  top: 0px;
+  left: 0px;
+}
+
+@media (max-width: 768px) {
+  .Navbar {
+    height: 7%;
+  }
+}
+
+.Navbar button {
+  background-color: rgba(0, 0, 0,0);
+  color: #e6e7e8;
+  border:0px;
+  width: 50%;
+  font-family: "vox";
+  font-weight: 700;
+  font-size: 150%;
+}
+
+.Navbar button.image-button:Hover {
+  background: linear-gradient(to bottom, #d2eff1 0%, #0072bc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.Navbar button.bideo-button:Hover {
+  background: linear-gradient(to bottom, rgb(247, 148, 29) 0%, rgb(198, 22, 141) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,59 @@
+.Navbar {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  z-index: 1;
+  height: 10vh;
+  min-height: 50px;
+  width: 100%;
+  background: rgba(0, 0, 0,0.9);
+  top: 0px;
+  left: 0px;
+}
+
+.Navbar button {
+  background: transparent;
+  border: 0px;
+  width: 50%;
+  height: 100%;
+}
+
+.Navbar button span {
+  color: #e6e7e8;
+  font-family: "vox";
+  font-weight: 700;
+  font-size: 30px;
+  
+}
+
+
+@media (max-width: 768px) {
+  .Navbar {
+    height: 7vh;
+  }
+
+  .Navbar button.image-button span {
+
+    background: linear-gradient(to bottom, #d2eff1 0%, #0072bc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .Navbar button.video-button span {
+    background: linear-gradient(to bottom, rgb(247, 148, 29) 0%, rgb(198, 22, 141) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.Navbar button.image-button:hover span {
+  background: linear-gradient(to bottom, #d2eff1 0%, #0072bc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.Navbar button.video-button:hover span {
+  background: linear-gradient(to bottom, rgb(247, 148, 29) 0%, rgb(198, 22, 141) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

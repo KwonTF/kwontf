@@ -1,0 +1,14 @@
+.ImageGrid h3 {
+  font-family: 'vox';
+  font-weight: 700;
+  font-size: 40px;
+  background: linear-gradient(to bottom, #3ec2cf 0%, #0072bc 100%); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ImageGrid .grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

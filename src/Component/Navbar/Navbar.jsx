@@ -10,13 +10,13 @@ function Navbar() {
         onClick={() => { goToAnchor('Image'); }}
         className="image-button"
       >
-        Image
+        <span>Image</span>
       </button>
       <button
         onClick={() => { goToAnchor('Video'); }}
         className="video-button"
       >
-        Video
+        <span>Video</span>
       </button>
     </nav>
   );

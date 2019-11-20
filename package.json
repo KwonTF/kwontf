@@ -9,7 +9,7 @@
 		"react-scrollable-anchor": "^0.6.1",
 		"webfontloader": "^1.6.28"
 	},
-	"homepage": "http://kwontf.netlify.com/",
+	"homepage": "http://kwontf.net/",
 	"devDependencies": {
 		"eslint": "^6.6.0",
 		"eslint-config-airbnb": "^18.0.1",
